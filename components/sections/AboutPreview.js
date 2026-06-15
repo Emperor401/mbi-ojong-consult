@@ -195,7 +195,7 @@ export default function AboutPreview() {
                     </span>
                     {stat.suffix}
                   </p>
-                  <p className="font-satoshi text-white/40 text-[10px] md:text-xs tracking-wider uppercase mt-1">
+                  <p className="font-satoshi text-white/75 text-[10px] md:text-xs tracking-wider uppercase mt-1">
                     {stat.label}
                   </p>
                 </div>
