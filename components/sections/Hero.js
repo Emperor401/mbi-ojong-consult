@@ -26,7 +26,8 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    gsap.set([eyebrowRef.current, tmRef.current], { opacity: 0, y: 12 });
+    gsap.set(eyebrowRef.current, { opacity: 0 });
+    gsap.set(tmRef.current, { opacity: 0, y: 12 });
     gsap.set(integrityRef.current, { opacity: 0, x: -70, filter: "blur(12px)" });
     gsap.set(bottomRef.current?.querySelectorAll(".fi"), { opacity: 0, y: 22 });
 
@@ -38,15 +39,22 @@ export default function Hero() {
 
       const chars1 = line1Ref.current?.querySelectorAll(".ch");
       const chars2 = line2Ref.current?.querySelectorAll(".ch");
+      const ewChars = eyebrowRef.current?.querySelectorAll(".ew-char");
 
       ctx = gsap.context(() => {
         gsap.set([chars1, chars2], { y: "110%", opacity: 0 });
+        gsap.set(ewChars, { opacity: 0, y: 10, filter: "blur(6px)" });
+        gsap.set(eyebrowRef.current, { opacity: 1 });
 
         const tl = gsap.timeline({ delay: 0.15 });
         tl
-          .to([eyebrowRef.current, tmRef.current], {
-            opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.1,
+          .to(ewChars, {
+            opacity: 1, y: 0, filter: "blur(0px)",
+            duration: 0.55, ease: "power3.out", stagger: 0.022,
           })
+          .to(tmRef.current, {
+            opacity: 1, y: 0, duration: 0.8, ease: "power3.out",
+          }, "<")
           .to(chars1, {
             y: "0%", opacity: 1, duration: 0.8, ease: "power4.out", stagger: 0.028,
           }, "-=0.4")
@@ -106,8 +114,16 @@ export default function Hero() {
       <div ref={eyebrowRef} className="px-5 md:px-8 pt-28">
         <div className="flex items-center gap-3">
           <span className="w-5 h-px bg-red-600 flex-shrink-0" />
-          <span className="font-satoshi text-[10px] text-white/35 tracking-[0.35em] sm:tracking-[0.45em] uppercase">
-            AML Investigation Analyst &mdash; Guidehouse, Vilnius
+          <span className="font-satoshi text-[11px] sm:text-xs text-white/90 tracking-[0.28em] sm:tracking-[0.38em] uppercase font-medium">
+            {"AML Investigation Analyst — Guidehouse, Vilnius".split("").map((char, i) => (
+              <span
+                key={i}
+                className="ew-char"
+                style={{ display: char === " " ? "inline" : "inline-block" }}
+              >
+                {char}
+              </span>
+            ))}
           </span>
         </div>
       </div>
