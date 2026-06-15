@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Download, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -187,19 +187,6 @@ export default function AboutPage() {
               DELIVERING PRECISE AML INVESTIGATIONS AND PROACTIVE RISK
               IDENTIFICATION TO PROTECT FINANCIAL INTEGRITY WORLDWIDE.
             </h2>
-            {/* Link to /cv.pdf — add your CV file to the public/ folder */}
-            <Link
-              href="/cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 font-satoshi text-sm tracking-widest uppercase border border-white/30 text-white px-6 py-3 rounded-full hover:border-red-600 hover:text-red-600 transition-all duration-300 mt-4 md:mt-6"
-            >
-              Download My CV
-              <Download
-                size={16}
-                className="group-hover:translate-y-1 transition-transform duration-300"
-              />
-            </Link>
           </div>
 
           {/* Right */}
