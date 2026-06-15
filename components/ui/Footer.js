@@ -113,10 +113,10 @@ export default function Footer() {
 
         {/* Divider */}
         <div className="border-t border-white/10 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
-          <p className="font-satoshi text-white/30 text-xs">
+          <p className="font-satoshi text-white/70 text-xs">
             © 2026 Jiles Agbor Mbi Ojong. All rights reserved.
           </p>
-          <p className="font-satoshi text-white/30 text-xs">
+          <p className="font-satoshi text-white/70 text-xs">
             AML Investigation Analyst &mdash; Vilnius, Lithuania
           </p>
         </div>
