@@ -102,12 +102,6 @@ export default function Footer() {
               </li>
               <li className="font-satoshi text-sm text-white/70">Worldwide</li>
             </ul>
-            <Link
-              href="/contact"
-              className="inline-block mt-6 font-satoshi text-sm tracking-widest uppercase border border-red-600 text-red-600 px-6 py-2 rounded-full hover:bg-red-600 hover:text-white transition-all duration-300"
-            >
-              Book Consultation
-            </Link>
           </div>
         </div>
 
