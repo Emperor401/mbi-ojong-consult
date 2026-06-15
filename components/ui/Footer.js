@@ -1,18 +1,9 @@
 "use client";
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Certificates", href: "/certificates" },
-  { label: "Contact", href: "/contact" },
-];
 
 export default function Footer() {
   const marqueeRef = useRef(null);
@@ -67,25 +58,6 @@ export default function Footer() {
               monitoring, financial crime detection, and compliance risk
               assessment — based in Vilnius, serving clients globally.
             </p>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <p className="font-satoshi text-white/30 text-xs tracking-widest uppercase mb-4">
-              Navigation
-            </p>
-            <ul className="flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="font-satoshi text-sm text-white/70 hover:text-red-600 transition-colors duration-300 tracking-wide"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Contact */}
