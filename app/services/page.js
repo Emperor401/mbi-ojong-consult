@@ -267,8 +267,6 @@ export default function ServicesPage() {
       <section ref={ctaRef} className="py-16 md:py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="relative bg-zinc-950 border border-white/10 rounded-2xl md:rounded-3xl p-8 sm:p-12 md:p-16 overflow-hidden text-center">
-            {/* Red glow */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-red-600/10 blur-[80px] rounded-full" />
 
             <div className="relative z-10">
               <div className="overflow-hidden mb-2">
