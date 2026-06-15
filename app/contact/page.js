@@ -117,7 +117,7 @@ export default function ContactPage() {
           <div ref={heroRef}>
             <div className="flex items-center gap-3 mb-5 md:mb-6">
               <div className="w-8 h-px bg-red-600" />
-              <span className="font-satoshi text-xs text-red-600 tracking-[0.4em] uppercase">
+              <span className="font-satoshi text-sm text-red-600 tracking-[0.3em] uppercase font-semibold">
                 Get In Touch
               </span>
             </div>

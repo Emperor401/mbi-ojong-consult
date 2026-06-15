@@ -147,7 +147,7 @@ export default function AboutPage() {
           <div ref={heroRef} className="mb-12 md:mb-16">
             <div className="flex items-center gap-3 mb-5 md:mb-6">
               <div className="w-8 h-px bg-red-600" />
-              <span className="font-satoshi text-xs text-red-600 tracking-[0.4em] uppercase">
+              <span className="font-satoshi text-sm text-red-600 tracking-[0.3em] uppercase font-semibold">
                 Who I Am
               </span>
             </div>
@@ -220,7 +220,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-3 mb-10 md:mb-16">
             <div className="w-8 h-px bg-red-600" />
-            <span className="font-satoshi text-xs text-red-600 tracking-[0.4em] uppercase">
+            <span className="font-satoshi text-sm text-red-600 tracking-[0.3em] uppercase font-semibold">
               Purpose
             </span>
           </div>
@@ -280,7 +280,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-3 mb-5 md:mb-6">
             <div className="w-8 h-px bg-red-600" />
-            <span className="font-satoshi text-xs text-red-600 tracking-[0.4em] uppercase">
+            <span className="font-satoshi text-sm text-red-600 tracking-[0.3em] uppercase font-semibold">
               FAQ
             </span>
           </div>
