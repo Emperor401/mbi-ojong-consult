@@ -172,7 +172,7 @@ export default function Hero() {
       <div ref={bottomRef} className="px-5 md:px-8 pb-8 sm:pb-10 pt-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-5 sm:gap-6">
 
-          <p className="fi font-satoshi text-white/45 text-xs leading-relaxed max-w-[260px]">
+          <p className="fi font-satoshi text-white/80 text-xs leading-relaxed max-w-[260px]">
             Hands-on AML investigator at Guidehouse and Western Union —
             detecting financial crime and safeguarding compliance worldwide.
           </p>
