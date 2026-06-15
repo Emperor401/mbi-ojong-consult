@@ -184,8 +184,8 @@ export default function AboutPreview() {
               className="grid grid-cols-3 gap-4 md:gap-6 mt-4 md:mt-6 pt-4 md:pt-6 border-t border-white/10"
             >
               {[
-                { target: 5, suffix: "+", label: "Years Experience" },
-                { target: 29, suffix: "+", label: "Certificates" },
+                { target: 3, suffix: "+", label: "Years Experience" },
+                { target: 4, suffix: "", label: "Certificates" },
                 { target: 50, suffix: "+", label: "Clients Served" },
               ].map((stat, i) => (
                 <div key={i}>

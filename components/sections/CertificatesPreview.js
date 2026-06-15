@@ -34,7 +34,7 @@ export default function CertificatesPreview() {
         counterRef.current,
         { innerText: 0 },
         {
-          innerText: 29, duration: 2.5, ease: "power2.out", snap: { innerText: 1 },
+          innerText: 4, duration: 2.5, ease: "power2.out", snap: { innerText: 1 },
           scrollTrigger: { trigger: counterRef.current, start: "top 80%" },
         }
       );
@@ -116,7 +116,7 @@ export default function CertificatesPreview() {
             href="/certificates"
             className="group flex items-center gap-3 font-satoshi text-sm tracking-widest uppercase bg-red-600 text-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all duration-300"
           >
-            View All 29 Certificates
+            View All 4 Certificates
             <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform duration-300" />
           </Link>
         </div>

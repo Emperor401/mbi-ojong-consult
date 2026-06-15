@@ -56,7 +56,7 @@ export default function CertificatesPage() {
         counterRef.current,
         { innerText: 0 },
         {
-          innerText: 29, duration: 2.5, ease: "power2.out",
+          innerText: 4, duration: 2.5, ease: "power2.out",
           snap: { innerText: 1 }, delay: 0.8,
         }
       );

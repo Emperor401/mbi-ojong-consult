@@ -163,12 +163,12 @@ export default function Hero() {
 
           <div className="fi flex items-center gap-4 sm:gap-5">
             <div>
-              <p className="font-bebas text-xl sm:text-2xl text-white leading-none">5+</p>
+              <p className="font-bebas text-xl sm:text-2xl text-white leading-none">3+</p>
               <p className="font-satoshi text-white/25 text-[9px] tracking-widest uppercase mt-0.5">Years</p>
             </div>
             <div className="w-px h-7 bg-white/10" />
             <div>
-              <p className="font-bebas text-xl sm:text-2xl text-white leading-none">29+</p>
+              <p className="font-bebas text-xl sm:text-2xl text-white leading-none">4</p>
               <p className="font-satoshi text-white/25 text-[9px] tracking-widest uppercase mt-0.5">Certs</p>
             </div>
             <div className="w-px h-7 bg-white/10" />
