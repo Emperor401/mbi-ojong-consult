@@ -7,23 +7,19 @@ export default function PageTransition({ children }) {
   const pathname = usePathname();
   const overlayRef = useRef(null);
   const contentRef = useRef(null);
-  const progressRef = useRef(null);
   const brandRef = useRef(null);
 
   useEffect(() => {
     const overlay = overlayRef.current;
     const content = contentRef.current;
-    const progress = progressRef.current;
     const brand = brandRef.current;
 
     const tl = gsap.timeline();
 
     tl.set(overlay, { scaleY: 1, transformOrigin: "top" })
-      .set(progress, { width: "0%" })
       .set(brand, { opacity: 0, y: 10 })
       .to(brand, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" })
-      .to(progress, { width: "100%", duration: 0.55, ease: "power2.inOut" }, "-=0.1")
-      .to([brand, progress], { opacity: 0, duration: 0.2, ease: "power2.in" }, "+=0.05")
+      .to(brand, { opacity: 0, duration: 0.2, ease: "power2.in" }, "+=0.3")
       .to(overlay, {
         scaleY: 0,
         transformOrigin: "top",
@@ -63,14 +59,6 @@ export default function PageTransition({ children }) {
           </span>
         </div>
 
-        {/* Progress bar */}
-        <div className="absolute bottom-0 left-0 h-[1.5px] bg-white/10 w-full">
-          <div
-            ref={progressRef}
-            className="h-full bg-red-600"
-            style={{ width: "0%" }}
-          />
-        </div>
       </div>
 
       {/* Page content */}
