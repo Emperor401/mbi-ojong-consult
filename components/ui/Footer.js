@@ -62,7 +62,7 @@ export default function Footer() {
                 Mbi Ojong
               </span>
             </div>
-            <p className="font-satoshi text-white/50 text-sm leading-relaxed">
+            <p className="font-satoshi text-white/80 text-sm leading-relaxed">
               AML Investigation Analyst specialising in consumer transaction
               monitoring, financial crime detection, and compliance risk
               assessment — based in Vilnius, serving clients globally.
