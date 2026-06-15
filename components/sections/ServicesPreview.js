@@ -164,7 +164,7 @@ export default function ServicesPreview() {
                 </h3>
 
                 {/* Description */}
-                <p className="font-satoshi text-white/50 text-sm leading-relaxed">
+                <p className="font-satoshi text-white/80 text-sm leading-relaxed">
                   {service.description}
                 </p>
 
