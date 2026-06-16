@@ -63,15 +63,60 @@ export default function CertificatesPage() {
 
       gsap.fromTo(
         gridRef.current.querySelectorAll(".cert-card"),
-        { y: 50, opacity: 0 },
+        { y: 80, opacity: 0, rotateX: -55, scale: 0.85 },
         {
-          y: 0, opacity: 1, duration: 0.8, ease: "power3.out",
+          y: 0, opacity: 1, rotateX: 0, scale: 1, duration: 1.1, ease: "power4.out",
           stagger: 0.1, delay: 0.6,
         }
       );
     });
 
-    return () => ctx.revert();
+    // 3D cursor-tracking tilt + glare sweep
+    const cards = gridRef.current.querySelectorAll(".cert-card");
+    const cleanupFns = [];
+
+    cards.forEach((card) => {
+      const inner = card.querySelector(".cert-inner");
+      const glare = card.querySelector(".cert-glare");
+
+      const setRotateX = gsap.quickTo(inner, "rotateX", { duration: 0.5, ease: "power3.out" });
+      const setRotateY = gsap.quickTo(inner, "rotateY", { duration: 0.5, ease: "power3.out" });
+      const setGlareX = gsap.quickTo(glare, "x", { duration: 0.3, ease: "power3.out" });
+      const setGlareY = gsap.quickTo(glare, "y", { duration: 0.3, ease: "power3.out" });
+
+      const handleMove = (e) => {
+        const rect = card.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width;
+        const py = (e.clientY - rect.top) / rect.height;
+
+        setRotateY((px - 0.5) * 18);
+        setRotateX(-(py - 0.5) * 18);
+        setGlareX(px * rect.width - 110);
+        setGlareY(py * rect.height - 110);
+
+        gsap.to(glare, { opacity: 0.4, duration: 0.3 });
+        gsap.to(inner, { scale: 1.03, duration: 0.4, ease: "power3.out" });
+      };
+
+      const handleLeave = () => {
+        setRotateX(0);
+        setRotateY(0);
+        gsap.to(glare, { opacity: 0, duration: 0.4 });
+        gsap.to(inner, { scale: 1, duration: 0.5, ease: "power3.out" });
+      };
+
+      card.addEventListener("mousemove", handleMove);
+      card.addEventListener("mouseleave", handleLeave);
+      cleanupFns.push(() => {
+        card.removeEventListener("mousemove", handleMove);
+        card.removeEventListener("mouseleave", handleLeave);
+      });
+    });
+
+    return () => {
+      ctx.revert();
+      cleanupFns.forEach((fn) => fn());
+    };
   }, []);
 
   return (
@@ -122,17 +167,32 @@ export default function CertificatesPage() {
       {/* Certificates Grid */}
       <section className="px-6 pb-16 md:pb-20">
         <div className="max-w-7xl mx-auto">
-          <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+          <div
+            ref={gridRef}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8"
+            style={{ perspective: "1400px" }}
+          >
             {certificates.map((cert, i) => (
               <div
                 key={i}
                 className="cert-card group rounded-2xl md:rounded-3xl overflow-hidden bg-black"
+                style={{ perspective: "1000px" }}
               >
-                <div className="relative">
+                <div
+                  className="cert-inner relative"
+                  style={{ transformStyle: "preserve-3d", willChange: "transform" }}
+                >
                   <img
                     src={cert.image}
                     alt={cert.title}
-                    className="w-full h-auto block"
+                    className="w-full h-auto block pointer-events-none"
+                  />
+                  {/* Cursor-tracking glare */}
+                  <div
+                    className="cert-glare absolute top-0 left-0 w-[220px] h-[220px] rounded-full pointer-events-none opacity-0"
+                    style={{
+                      background: "radial-gradient(circle, rgba(255,255,255,0.55) 0%, transparent 70%)",
+                    }}
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent px-4 md:px-5 pt-10 md:pt-12 pb-4 md:pb-5">
                     <h3 className="font-bebas text-white text-[clamp(1.4rem,3vw,2.8rem)] leading-[1] uppercase tracking-wide">
