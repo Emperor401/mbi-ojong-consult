@@ -48,7 +48,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="max-w-sm">
             <div className="flex items-center gap-2 mb-4">
-              <span className="w-3 h-3 bg-red-600 rotate-45 inline-block" />
+              <span className="w-3 h-3 bg-white rotate-45 inline-block" />
               <span className="font-bebas text-white text-xl tracking-widest uppercase">
                 Mbi Ojong
               </span>
@@ -96,7 +96,7 @@ export default function Footer() {
               <span className="font-bebas text-[8vw] text-white tracking-tight mr-8">
                 EMPOWERING FINANCIAL
               </span>
-              <span className="font-script italic text-[8vw] text-red-600 mr-8">
+              <span className="font-script italic text-[8vw] text-white mr-8">
                 integrity
               </span>
             </span>

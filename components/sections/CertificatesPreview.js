@@ -109,8 +109,8 @@ export default function CertificatesPreview() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 mb-12 md:mb-16">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-red-600" />
-              <span className="font-satoshi text-sm text-red-600 tracking-[0.3em] uppercase font-semibold">Credentials</span>
+              <div className="w-8 h-px bg-white" />
+              <span className="font-satoshi text-sm text-white tracking-[0.3em] uppercase font-semibold">Credentials</span>
             </div>
             <div ref={headingRef}>
               <div className="overflow-hidden">
@@ -119,7 +119,7 @@ export default function CertificatesPreview() {
                 </span>
               </div>
               <div className="overflow-hidden -mt-2">
-                <span className="reveal-word inline-block font-satoshi italic text-red-600 text-[7vw] sm:text-[5vw] md:text-[3.5vw] lg:text-[2.5vw] font-bold">
+                <span className="reveal-word inline-block font-satoshi italic text-white text-[7vw] sm:text-[5vw] md:text-[3.5vw] lg:text-[2.5vw] font-bold">
                   excellence
                 </span>
               </div>
@@ -129,7 +129,7 @@ export default function CertificatesPreview() {
           <div className="flex items-end gap-2">
             <span ref={counterRef} className="font-bebas text-[12vw] sm:text-[8vw] md:text-[6vw] text-white leading-none">0</span>
             <div className="flex flex-col mb-2">
-              <span className="font-bebas text-xl md:text-2xl text-red-600">/100</span>
+              <span className="font-bebas text-xl md:text-2xl text-white">/100</span>
               <span className="font-satoshi text-xs text-white/30 tracking-widest uppercase">Certificates</span>
             </div>
           </div>
@@ -178,7 +178,7 @@ export default function CertificatesPreview() {
         <div className="flex justify-center mt-10 md:mt-14">
           <Link
             href="/certificates"
-            className="group flex items-center gap-3 font-satoshi text-sm tracking-widest uppercase bg-red-600 text-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all duration-300"
+            className="group flex items-center gap-3 font-satoshi text-sm tracking-widest uppercase bg-white text-black px-8 py-4 rounded-full hover:bg-zinc-300 transition-all duration-300"
           >
             View All 4 Certificates
             <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform duration-300" />

@@ -7,11 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        red: {
-          primary: "#CC0000",
-        },
-      },
       fontFamily: {
         bebas: ["var(--font-bebas)"],
         satoshi: ["var(--font-body)", "sans-serif"],

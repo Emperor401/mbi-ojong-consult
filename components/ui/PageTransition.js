@@ -44,7 +44,7 @@ export default function PageTransition({ children }) {
       >
         {/* Branding */}
         <div ref={brandRef} className="flex flex-col items-center gap-3">
-          <span className="w-3 h-3 bg-red-600 rotate-45 inline-block" />
+          <span className="w-3 h-3 bg-white rotate-45 inline-block" />
           <span
             className="font-bebas text-white tracking-[0.5em] uppercase"
             style={{ fontSize: "clamp(1rem, 3vw, 1.4rem)" }}

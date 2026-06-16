@@ -162,8 +162,8 @@ export default function ServicesPage() {
         <div
           className="absolute inset-0 opacity-5"
           style={{
-            backgroundImage: `linear-gradient(rgba(204,0,0,0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(204,0,0,0.3) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)`,
             backgroundSize: "60px 60px",
           }}
         />
@@ -171,8 +171,8 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div ref={heroRef}>
             <div className="flex items-center gap-3 mb-5 md:mb-6">
-              <div className="w-8 h-px bg-red-600" />
-              <span className="font-satoshi text-sm text-red-600 tracking-[0.3em] uppercase font-semibold">
+              <div className="w-8 h-px bg-white" />
+              <span className="font-satoshi text-sm text-white tracking-[0.3em] uppercase font-semibold">
                 What I Offer
               </span>
             </div>
@@ -182,7 +182,7 @@ export default function ServicesPage() {
               </span>
             </div>
             <div className="overflow-hidden -mt-2 md:-mt-4">
-              <span className="reveal-word inline-block font-satoshi italic text-red-600 text-[10vw] sm:text-[8vw] md:text-[6vw] lg:text-[4vw] font-bold">
+              <span className="reveal-word inline-block font-satoshi italic text-white text-[10vw] sm:text-[8vw] md:text-[6vw] lg:text-[4vw] font-bold">
                 specialized
               </span>
             </div>
@@ -203,13 +203,13 @@ export default function ServicesPage() {
             return (
               <div
                 key={i}
-                className="service-card group relative bg-zinc-950 border border-white/10 rounded-2xl p-6 md:p-8 lg:p-10 hover:border-red-600 transition-all duration-500 overflow-hidden"
+                className="service-card group relative bg-zinc-950 border border-white/10 rounded-2xl p-6 md:p-8 lg:p-10 hover:border-white transition-all duration-500 overflow-hidden"
               >
                 {/* Hover glow */}
-                <div className="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/[0.03] transition-all duration-500 rounded-2xl" />
+                <div className="absolute inset-0 bg-white/0 group-hover:bg-white/[0.03] transition-all duration-500 rounded-2xl" />
 
-                {/* Bottom red line */}
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 group-hover:w-full transition-all duration-700" />
+                {/* Bottom line */}
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-700" />
 
                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
                   {/* Left — number, icon, title */}
@@ -218,17 +218,17 @@ export default function ServicesPage() {
                       <span className="font-bebas text-4xl md:text-5xl text-white/10 group-hover:text-white/20 transition-colors duration-300">
                         {service.number}
                       </span>
-                      <div className="w-9 h-9 md:w-10 md:h-10 border border-white/20 group-hover:border-red-600 rounded-full flex items-center justify-center transition-all duration-300">
+                      <div className="w-9 h-9 md:w-10 md:h-10 border border-white/20 group-hover:border-white rounded-full flex items-center justify-center transition-all duration-300">
                         <Icon
                           size={16}
-                          className="text-white/50 group-hover:text-red-600 transition-colors duration-300"
+                          className="text-white/50 group-hover:text-white transition-colors duration-300"
                         />
                       </div>
                     </div>
-                    <h3 className="font-bebas text-2xl md:text-3xl text-white tracking-wide leading-tight group-hover:text-red-600 transition-colors duration-300">
+                    <h3 className="font-bebas text-2xl md:text-3xl text-white tracking-wide leading-tight">
                       {service.title}
                     </h3>
-                    <p className="font-satoshi italic text-red-600/70 text-sm mt-1">
+                    <p className="font-satoshi italic text-white/70 text-sm mt-1">
                       {service.tagline}
                     </p>
                   </div>
@@ -248,7 +248,7 @@ export default function ServicesPage() {
                     <ul className="flex flex-col gap-2">
                       {service.features.map((feature, j) => (
                         <li key={j} className="flex items-center gap-2">
-                          <ChevronRight size={14} className="text-red-600 shrink-0" />
+                          <ChevronRight size={14} className="text-white shrink-0" />
                           <span className="font-satoshi text-white/60 text-xs">
                             {feature}
                           </span>
@@ -275,7 +275,7 @@ export default function ServicesPage() {
                 </span>
               </div>
               <div className="overflow-hidden -mt-2 mb-6 md:mb-8">
-                <span className="inline-block font-satoshi italic text-red-600 text-[5vw] sm:text-[4vw] md:text-[3vw] lg:text-[2vw] font-bold">
+                <span className="inline-block font-satoshi italic text-white text-[5vw] sm:text-[4vw] md:text-[3vw] lg:text-[2vw] font-bold">
                   let's talk
                 </span>
               </div>
@@ -285,7 +285,7 @@ export default function ServicesPage() {
               </p>
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-3 font-satoshi text-sm tracking-widest uppercase bg-red-600 text-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all duration-300"
+                className="group inline-flex items-center gap-3 font-satoshi text-sm tracking-widest uppercase bg-white text-black px-8 py-4 rounded-full hover:bg-zinc-300 transition-all duration-300"
               >
                 Book a Consultation
                 <ArrowUpRight

@@ -77,8 +77,8 @@ export default function CallToAction() {
         <div
           className="absolute inset-0 opacity-5"
           style={{
-            backgroundImage: `linear-gradient(rgba(204,0,0,0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(204,0,0,0.3) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)`,
             backgroundSize: "60px 60px",
           }}
         />
@@ -90,8 +90,8 @@ export default function CallToAction() {
           {/* Left - Heading */}
           <div ref={headingRef} className="max-w-2xl">
             <div className="flex items-center gap-3 mb-5 md:mb-6">
-              <div className="w-8 h-px bg-red-600" />
-              <span className="font-satoshi text-sm text-red-600 tracking-[0.3em] uppercase font-semibold">
+              <div className="w-8 h-px bg-white" />
+              <span className="font-satoshi text-sm text-white tracking-[0.3em] uppercase font-semibold">
                 Work Together
               </span>
             </div>
@@ -107,7 +107,7 @@ export default function CallToAction() {
               </span>
             </div>
             <div className="overflow-hidden -mt-2">
-              <span className="reveal-word inline-block font-satoshi italic text-red-600 text-[8vw] sm:text-[6vw] md:text-[4vw] lg:text-[3vw] font-bold">
+              <span className="reveal-word inline-block font-satoshi italic text-white text-[8vw] sm:text-[6vw] md:text-[4vw] lg:text-[3vw] font-bold">
                 let's connect
               </span>
             </div>
@@ -146,7 +146,7 @@ export default function CallToAction() {
             {/* CTA Button */}
             <Link
               href="/contact"
-              className="fade-in group flex items-center justify-center gap-3 font-satoshi text-sm tracking-widest uppercase bg-red-600 text-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all duration-300 w-full text-center"
+              className="fade-in group flex items-center justify-center gap-3 font-satoshi text-sm tracking-widest uppercase bg-white text-black px-8 py-4 rounded-full hover:bg-zinc-300 transition-all duration-300 w-full text-center"
             >
               Book a Consultation
               <ArrowUpRight

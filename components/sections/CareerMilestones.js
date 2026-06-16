@@ -58,7 +58,7 @@ const milestones = [
 ];
 
 const typeColors = {
-  Experience: "text-red-600 border-red-600/30",
+  Experience: "text-white border-white/40",
   Education: "text-white/60 border-white/20",
   Certification: "text-white/40 border-white/10",
 };
@@ -116,8 +116,8 @@ export default function CareerMilestones() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 mb-12 md:mb-16">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-red-600" />
-              <span className="font-satoshi text-sm text-red-600 tracking-[0.3em] uppercase font-semibold">
+              <div className="w-8 h-px bg-white" />
+              <span className="font-satoshi text-sm text-white tracking-[0.3em] uppercase font-semibold">
                 Journey
               </span>
             </div>
@@ -133,7 +133,7 @@ export default function CareerMilestones() {
                 </span>
               </div>
               <div className="overflow-hidden -mt-2">
-                <span className="reveal-word inline-block font-satoshi italic text-red-600 text-[7vw] sm:text-[5vw] md:text-[3.5vw] lg:text-[2.5vw] font-bold">
+                <span className="reveal-word inline-block font-satoshi italic text-white text-[7vw] sm:text-[5vw] md:text-[3.5vw] lg:text-[2.5vw] font-bold">
                   journey
                 </span>
               </div>
@@ -156,26 +156,28 @@ export default function CareerMilestones() {
           {milestones.map((item, i) => (
             <div
               key={i}
-              className="milestone-item group flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4 py-5 md:py-6 border-b border-white/10 hover:border-red-600/40 transition-all duration-300"
+              className="milestone-item group flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4 py-5 md:py-6 border-b border-white/10 hover:border-white/40 transition-all duration-300"
             >
               {/* Left */}
               <div className="flex items-start gap-3 md:gap-4">
                 {/* Number */}
-                <span className="font-bebas text-xl md:text-2xl text-white/20 group-hover:text-red-600 transition-colors duration-300 min-w-[2rem] shrink-0">
+                <span className="font-bebas text-xl md:text-2xl text-white/20 group-hover:text-white transition-colors duration-300 min-w-[2rem] shrink-0">
                   {String(i + 1).padStart(2, "0")}
                 </span>
 
                 {/* Check Icon */}
                 <CheckCircle
                   size={16}
-                  className="text-red-600 mt-0.5 shrink-0"
+                  className="text-white mt-0.5 shrink-0"
                 />
 
                 {/* Title */}
-                <h3 className="font-satoshi text-white text-sm font-semibold leading-snug group-hover:text-red-600 transition-colors duration-300">
+                <h3 className="font-satoshi text-white text-sm font-semibold leading-snug">
                   {item.title}
                 </h3>
               </div>
+              
+
 
               {/* Right */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 ml-[3.25rem] md:ml-0 shrink-0">

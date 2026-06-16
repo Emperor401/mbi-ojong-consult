@@ -129,8 +129,8 @@ export default function CertificatesPage() {
 
             <div>
               <div className="flex items-center gap-3 mb-5 md:mb-6">
-                <div className="w-8 h-px bg-red-600" />
-                <span className="font-satoshi text-sm text-red-600 tracking-[0.3em] uppercase font-semibold">
+                <div className="w-8 h-px bg-white" />
+                <span className="font-satoshi text-sm text-white tracking-[0.3em] uppercase font-semibold">
                   Credentials
                 </span>
               </div>
@@ -140,7 +140,7 @@ export default function CertificatesPage() {
                 </span>
               </div>
               <div className="overflow-hidden -mt-2 md:-mt-4">
-                <span className="reveal-word inline-block font-satoshi italic text-red-600 text-[10vw] sm:text-[8vw] md:text-[6vw] lg:text-[4vw] font-bold">
+                <span className="reveal-word inline-block font-satoshi italic text-white text-[10vw] sm:text-[8vw] md:text-[6vw] lg:text-[4vw] font-bold">
                   excellence
                 </span>
               </div>
@@ -154,7 +154,7 @@ export default function CertificatesPage() {
                 0
               </span>
               <div className="flex flex-col mb-1 md:mb-2">
-                <span className="font-bebas text-2xl md:text-3xl text-red-600">/100</span>
+                <span className="font-bebas text-2xl md:text-3xl text-white">/100</span>
                 <span className="font-satoshi text-xs text-white/30 tracking-widest uppercase">
                   Certificates
                 </span>

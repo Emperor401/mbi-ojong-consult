@@ -1,100 +1,57 @@
 "use client";
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
+import { ArrowUpRight, Mail, Phone } from "lucide-react";
+
+const LinkedinIcon = (props) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z" />
+  </svg>
+);
+
+const socials = [
+  { icon: LinkedinIcon, href: "https://www.linkedin.com/in/mbi-ojong-77381-4230", label: "LinkedIn" },
+  { icon: Mail, href: "mailto:Mbiojong06@gmail.com", label: "Email" },
+  { icon: Phone, href: "tel:+37068845465", label: "Phone" },
+];
 
 export default function Hero() {
-  const line1Ref = useRef(null);
-  const line2Ref = useRef(null);
-  const integrityRef = useRef(null);
+  const blobRef = useRef(null);
   const eyebrowRef = useRef(null);
-  const bottomRef = useRef(null);
-  const tmRef = useRef(null);
-
-  const fitLines = useCallback(() => {
-    const vw = window.innerWidth;
-    [line1Ref, line2Ref].forEach((ref) => {
-      if (!ref.current) return;
-      let lo = 10, hi = 1200;
-      while (hi - lo > 0.5) {
-        const mid = (lo + hi) / 2;
-        ref.current.style.fontSize = mid + "px";
-        ref.current.scrollWidth <= vw ? (lo = mid) : (hi = mid);
-      }
-      ref.current.style.fontSize = lo + "px";
-    });
-  }, []);
+  const headingRef = useRef(null);
+  const imageRef = useRef(null);
+  const brandRef = useRef(null);
+  const dockRef = useRef(null);
 
   useEffect(() => {
-    gsap.set(eyebrowRef.current, { opacity: 0 });
-    gsap.set(tmRef.current, { opacity: 0, y: 12 });
-    gsap.set(integrityRef.current, { opacity: 0, x: -70, filter: "blur(12px)" });
-    gsap.set(bottomRef.current?.querySelectorAll(".fi"), { opacity: 0, y: 22 });
+    const ctx = gsap.context(() => {
+      const lines = headingRef.current?.querySelectorAll(".reveal-line");
+      const dockItems = dockRef.current?.querySelectorAll(".dock-item");
 
-    let ctx;
+      gsap.set(blobRef.current, { opacity: 0, y: 40 });
+      gsap.set(eyebrowRef.current, { opacity: 0, y: 10 });
+      gsap.set(lines, { y: 40, opacity: 0 });
+      gsap.set(imageRef.current, { opacity: 0, scale: 1.08, clipPath: "inset(100% 0% 0% 0%)" });
+      gsap.set(brandRef.current, { opacity: 0, y: 30 });
+      gsap.set(dockItems, { opacity: 0, x: 20 });
 
-    const run = () => {
-      ctx?.revert();
-      fitLines();
-
-      const chars1 = line1Ref.current?.querySelectorAll(".ch");
-      const chars2 = line2Ref.current?.querySelectorAll(".ch");
-      const ewChars = eyebrowRef.current?.querySelectorAll(".ew-char");
-
-      ctx = gsap.context(() => {
-        gsap.set([chars1, chars2], { y: "110%", opacity: 0 });
-        gsap.set(ewChars, { opacity: 0, y: 10, filter: "blur(6px)" });
-        gsap.set(eyebrowRef.current, { opacity: 1 });
-
-        const tl = gsap.timeline({ delay: 0.15 });
-        tl
-          .to(ewChars, {
-            opacity: 1, y: 0, filter: "blur(0px)",
-            duration: 0.55, ease: "power3.out", stagger: 0.022,
-          })
-          .to(tmRef.current, {
-            opacity: 1, y: 0, duration: 0.8, ease: "power3.out",
-          }, "<")
-          .to(chars1, {
-            y: "0%", opacity: 1, duration: 0.8, ease: "power4.out", stagger: 0.028,
-          }, "-=0.4")
-          .to(chars2, {
-            y: "0%", opacity: 1, duration: 0.8, ease: "power4.out", stagger: 0.028,
-          }, "-=0.55")
-          .to(integrityRef.current, {
-            opacity: 1, x: 0, filter: "blur(0px)", duration: 1.3, ease: "power3.out",
-          }, "-=0.55")
-          .to(bottomRef.current?.querySelectorAll(".fi"), {
-            y: 0, opacity: 1, duration: 0.7, ease: "power3.out", stagger: 0.1,
-          }, "-=0.9");
-      });
-    };
-
-    const timeout = setTimeout(run, 400);
-    document.fonts.ready.then(() => {
-      clearTimeout(timeout);
-      run();
+      const tl = gsap.timeline({ delay: 0.4 });
+      tl
+        .to(blobRef.current, { opacity: 1, y: 0, duration: 1, ease: "power3.out" })
+        .to(eyebrowRef.current, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, "-=0.6")
+        .to(lines, { y: 0, opacity: 1, duration: 0.8, ease: "power4.out", stagger: 0.1 }, "-=0.45")
+        .to(imageRef.current, {
+          opacity: 1, scale: 1, clipPath: "inset(0% 0% 0% 0%)", duration: 1.3, ease: "power4.out",
+        }, "-=0.7")
+        .to(brandRef.current, { opacity: 1, y: 0, duration: 1, ease: "power3.out" }, "-=0.3")
+        .to(dockItems, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out", stagger: 0.1 }, "-=0.6");
     });
-
-    window.addEventListener("resize", fitLines);
-    return () => {
-      clearTimeout(timeout);
-      window.removeEventListener("resize", fitLines);
-      ctx?.revert();
-    };
-  }, [fitLines]);
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="relative min-h-screen bg-black flex flex-col overflow-hidden">
-
-      {/* Subtle red depth glow */}
-      <div
-        className="absolute bottom-0 right-0 w-[700px] h-[700px] pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(220,38,38,0.08) 0%, transparent 70%)",
-          filter: "blur(50px)",
-        }}
-      />
+    <section className="relative bg-black overflow-hidden">
 
       {/* Grain texture */}
       <div
@@ -105,101 +62,138 @@ export default function Hero() {
         }}
       />
 
-      {/* TM badge */}
-      <div ref={tmRef} className="absolute top-24 right-6 z-10">
-        <span className="font-satoshi text-white/25 text-[9px] tracking-[0.4em] uppercase">TM</span>
-      </div>
-
-      {/* Eyebrow */}
-      <div ref={eyebrowRef} className="px-5 md:px-8 pt-28">
-        <div className="flex items-center gap-3">
-          <span className="w-5 h-px bg-red-600 flex-shrink-0" />
-          <span className="font-satoshi text-[11px] sm:text-xs text-white/90 tracking-[0.28em] sm:tracking-[0.38em] uppercase font-medium">
-            {"AML Investigation Analyst — Guidehouse, Vilnius".split("").map((char, i) => (
-              <span
-                key={i}
-                className="ew-char"
-                style={{ display: char === " " ? "inline" : "inline-block" }}
-              >
-                {char}
-              </span>
-            ))}
-          </span>
-        </div>
-      </div>
-
-      {/* Headlines */}
-      <div className="flex-1 flex flex-col justify-center">
-        {/* EMPOWERING */}
-        <div className="overflow-hidden">
-          <div
-            ref={line1Ref}
-            className="font-bebas text-white leading-[0.9] tracking-tight whitespace-nowrap"
-            style={{ fontSize: "14vw" }}
-          >
-            {"EMPOWERING".split("").map((c, i) => (
-              <span key={i} className="ch inline-block">{c}</span>
-            ))}
-          </div>
-        </div>
-
-        {/* FINANCIAL */}
-        <div className="overflow-hidden">
-          <div
-            ref={line2Ref}
-            className="font-bebas text-white leading-[0.9] tracking-tight whitespace-nowrap"
-            style={{ fontSize: "14vw" }}
-          >
-            {"FINANCIAL".split("").map((c, i) => (
-              <span key={i} className="ch inline-block">{c}</span>
-            ))}
-          </div>
-        </div>
-
-        {/* integrity */}
-        <div className="pl-4 md:pl-8 mt-4 sm:mt-6">
-          <span
-            ref={integrityRef}
-            className="font-script italic text-red-600 leading-none"
-            style={{ fontSize: "clamp(2.2rem, 8vw, 130px)" }}
-          >
-            integrity
-          </span>
-        </div>
-      </div>
-
-      {/* Bottom bar */}
-      <div ref={bottomRef} className="px-5 md:px-8 pb-8 sm:pb-10 pt-6">
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-5 sm:gap-6">
-
-          <p className="fi font-satoshi text-white/80 text-xs leading-relaxed max-w-[260px]">
-            Hands-on AML investigator at Guidehouse and Western Union —
-            detecting financial crime and safeguarding compliance worldwide.
-          </p>
-
-          <div className="fi flex items-center gap-4 sm:gap-5">
-            <div>
-              <p className="font-bebas text-xl sm:text-2xl text-white leading-none">3+</p>
-              <p className="font-satoshi text-white/25 text-[9px] tracking-widest uppercase mt-0.5">Years</p>
-            </div>
-            <div className="w-px h-7 bg-white/10" />
-            <div>
-              <p className="font-bebas text-xl sm:text-2xl text-white leading-none">4</p>
-              <p className="font-satoshi text-white/25 text-[9px] tracking-widest uppercase mt-0.5">Certs</p>
-            </div>
-            <div className="w-px h-7 bg-white/10" />
-            <Link
-              href="/contact"
-              className="font-satoshi text-[10px] tracking-[0.3em] uppercase text-red-600 hover:text-white transition-colors duration-300"
+      {/* Floating social dock */}
+      <div
+        ref={dockRef}
+        className="hidden lg:flex fixed right-5 top-1/2 -translate-y-1/2 flex-col gap-3 z-40"
+      >
+        {socials.map((s, i) => {
+          const Icon = s.icon;
+          return (
+            <a
+              key={i}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              className="dock-item w-11 h-11 flex items-center justify-center rounded-2xl bg-white/[0.06] border border-white/10 backdrop-blur-[24px] text-white/70 hover:text-white hover:border-white/40 transition-all duration-300"
             >
-              Book a Call ↗
-            </Link>
+              <Icon className="w-[17px] h-[17px]" />
+            </a>
+          );
+        })}
+      </div>
+
+      <div className="px-4 md:px-6 pt-28 md:pt-32 max-w-7xl mx-auto">
+
+        {/* Organic blob hero card */}
+        <div className="relative">
+          <div
+            ref={blobRef}
+            className="relative bg-[#161616] border border-white/[0.14] overflow-hidden flex flex-col md:flex-row min-h-[600px] md:min-h-[620px] shadow-[0_0_0_1px_rgba(255,255,255,0.03)]"
+            style={{
+              borderRadius: "40px",
+              borderTopRightRadius: "clamp(110px, 24vw, 380px)",
+              borderBottomRightRadius: "clamp(48px, 9vw, 150px)",
+            }}
+          >
+            {/* rim light tracing the curve */}
+            <div
+              className="absolute top-0 right-0 pointer-events-none"
+              style={{
+                width: "60%",
+                height: "55%",
+                background: "radial-gradient(ellipse at top right, rgba(255,255,255,0.10) 0%, transparent 60%)",
+              }}
+            />
+
+            {/* corner glow */}
+            <div
+              className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none"
+              style={{
+                background: "radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%)",
+                filter: "blur(60px)",
+              }}
+            />
+
+            {/* Left: eyebrow + heading + CTA */}
+            <div className="relative z-10 flex-1 flex flex-col justify-center px-6 sm:px-10 md:px-14 py-12 md:py-0">
+
+              <div ref={eyebrowRef} className="flex items-center gap-3 mb-6 md:mb-8">
+                <span className="w-5 h-px bg-white flex-shrink-0" />
+                <span className="font-satoshi text-[11px] sm:text-xs text-white/90 tracking-[0.28em] uppercase font-medium">
+                  AML Investigation Analyst — Guidehouse, Vilnius
+                </span>
+              </div>
+
+              <div ref={headingRef} className="mb-8 md:mb-10">
+                <div className="overflow-hidden">
+                  <span className="reveal-line block font-bebas text-white text-[10vw] sm:text-[7vw] md:text-[4.4vw] lg:text-[3.4vw] leading-[1.05] tracking-tight">
+                    Detecting financial crime,
+                  </span>
+                </div>
+                <div className="overflow-hidden">
+                  <span className="reveal-line block font-bebas text-white text-[10vw] sm:text-[7vw] md:text-[4.4vw] lg:text-[3.4vw] leading-[1.05] tracking-tight">
+                    safeguarding businesses
+                  </span>
+                </div>
+                <div className="overflow-hidden">
+                  <span className="reveal-line block font-bebas text-white text-[10vw] sm:text-[7vw] md:text-[4.4vw] lg:text-[3.4vw] leading-[1.05] tracking-tight">
+                    that demand{" "}
+                    <span className="font-script italic text-white normal-case">integrity</span>.
+                  </span>
+                </div>
+              </div>
+
+              <Link
+                href="/services"
+                className="group inline-flex items-center gap-3 w-fit font-satoshi text-sm tracking-widest uppercase bg-white text-black px-7 py-4 rounded-full hover:bg-zinc-300 transition-all duration-300"
+              >
+                View Services
+                <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform duration-300" />
+              </Link>
+            </div>
+
+            {/* Right: reserved space for the portrait on desktop */}
+            <div className="hidden md:block md:w-[38%] shrink-0" />
           </div>
 
-          <span className="fi hidden md:block font-satoshi text-white/20 text-[9px] tracking-[0.4em] uppercase">
-            Scroll ↓
-          </span>
+          {/* Portrait — breaks out of the blob, positioned outside the clipped card */}
+          <div className="px-6 sm:px-10 md:px-0 -mt-6 md:mt-0 md:absolute md:right-12 md:-top-16 md:bottom-0 md:w-[36%] flex items-end justify-center">
+            <div
+              ref={imageRef}
+              className="relative w-[70%] md:w-full aspect-[3/4] md:h-[calc(100%+4rem)]"
+            >
+              <img
+                src="/image5.jpeg"
+                alt="Jiles Agbor Mbi Ojong"
+                className="w-full h-full object-cover object-top grayscale contrast-125 rounded-t-[80px] md:rounded-t-[170px] rounded-b-[24px]"
+              />
+              {/* color motion streak */}
+              <div
+                className="absolute left-[-15%] right-[-15%] top-[32%] h-12 md:h-16 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(255,255,255,0.9) 35%, rgba(255,255,255,0.4) 55%, transparent)",
+                  filter: "blur(14px)",
+                  transform: "rotate(-6deg)",
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent rounded-t-[80px] md:rounded-t-[140px] rounded-b-[24px]" />
+            </div>
+          </div>
+        </div>
 
+        {/* Bottom gradient brand text */}
+        <div ref={brandRef} className="py-10 md:py-16 overflow-hidden">
+          <span
+            className="font-bebas text-[16vw] md:text-[8vw] leading-none tracking-tight bg-clip-text text-transparent"
+            style={{
+              backgroundImage: "linear-gradient(90deg, #ffffff 0%, #999999 55%, #333333 100%)",
+            }}
+          >
+            MBIOJONG
+          </span>
         </div>
       </div>
     </section>

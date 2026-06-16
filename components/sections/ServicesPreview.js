@@ -105,8 +105,8 @@ export default function ServicesPreview() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 mb-12 md:mb-16">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-red-600" />
-              <span className="font-satoshi text-sm text-red-600 tracking-[0.3em] uppercase font-semibold">
+              <div className="w-8 h-px bg-white" />
+              <span className="font-satoshi text-sm text-white tracking-[0.3em] uppercase font-semibold">
                 What I Do
               </span>
             </div>
@@ -117,7 +117,7 @@ export default function ServicesPreview() {
                 </span>
               </div>
               <div className="overflow-hidden -mt-2">
-                <span className="reveal-word inline-block font-satoshi italic text-red-600 text-[7vw] sm:text-[5vw] md:text-[3.5vw] lg:text-[2.5vw] font-bold">
+                <span className="reveal-word inline-block font-satoshi italic text-white text-[7vw] sm:text-[5vw] md:text-[3.5vw] lg:text-[2.5vw] font-bold">
                   specialized
                 </span>
               </div>
@@ -145,8 +145,8 @@ export default function ServicesPreview() {
                 key={i}
                 className="service-card group bg-black p-6 md:p-8 hover:bg-zinc-950 transition-all duration-500 cursor-pointer relative overflow-hidden"
               >
-                {/* Hover red line */}
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 group-hover:w-full transition-all duration-500" />
+                {/* Hover line */}
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-500" />
 
                 {/* Number */}
                 <span className="font-bebas text-5xl md:text-6xl text-white/5 group-hover:text-white/10 transition-all duration-300 absolute top-4 right-5 md:right-6">
@@ -154,12 +154,12 @@ export default function ServicesPreview() {
                 </span>
 
                 {/* Icon */}
-                <div className="w-11 h-11 md:w-12 md:h-12 border border-white/20 group-hover:border-red-600 rounded-full flex items-center justify-center mb-5 md:mb-6 transition-all duration-300">
-                  <Icon size={18} className="text-white/60 group-hover:text-red-600 transition-colors duration-300" />
+                <div className="w-11 h-11 md:w-12 md:h-12 border border-white/20 group-hover:border-white rounded-full flex items-center justify-center mb-5 md:mb-6 transition-all duration-300">
+                  <Icon size={18} className="text-white/60 group-hover:text-white transition-colors duration-300" />
                 </div>
 
                 {/* Title */}
-                <h3 className="font-bebas text-xl md:text-2xl text-white tracking-wide mb-2 md:mb-3 group-hover:text-red-600 transition-colors duration-300">
+                <h3 className="font-bebas text-xl md:text-2xl text-white tracking-wide mb-2 md:mb-3">
                   {service.title}
                 </h3>
 
@@ -170,10 +170,10 @@ export default function ServicesPreview() {
 
                 {/* Arrow */}
                 <div className="mt-5 md:mt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                  <span className="font-satoshi text-xs text-red-600 tracking-widest uppercase">
+                  <span className="font-satoshi text-xs text-white tracking-widest uppercase">
                     Learn More
                   </span>
-                  <ArrowUpRight size={14} className="text-red-600" />
+                  <ArrowUpRight size={14} className="text-white" />
                 </div>
               </div>
             );
@@ -184,7 +184,7 @@ export default function ServicesPreview() {
         <div className="flex justify-center mt-10 md:mt-12">
           <Link
             href="/services"
-            className="group flex items-center gap-3 font-satoshi text-sm tracking-widest uppercase border border-white/20 text-white px-8 py-4 rounded-full hover:border-red-600 hover:text-red-600 transition-all duration-300"
+            className="group flex items-center gap-3 font-satoshi text-sm tracking-widest uppercase border border-white/20 text-white px-8 py-4 rounded-full hover:border-white hover:bg-white hover:text-black transition-all duration-300"
           >
             View All Services
             <ArrowUpRight

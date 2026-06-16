@@ -116,8 +116,8 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto">
           <div ref={heroRef}>
             <div className="flex items-center gap-3 mb-5 md:mb-6">
-              <div className="w-8 h-px bg-red-600" />
-              <span className="font-satoshi text-sm text-red-600 tracking-[0.3em] uppercase font-semibold">
+              <div className="w-8 h-px bg-white" />
+              <span className="font-satoshi text-sm text-white tracking-[0.3em] uppercase font-semibold">
                 Get In Touch
               </span>
             </div>
@@ -127,7 +127,7 @@ export default function ContactPage() {
               </span>
             </div>
             <div className="overflow-hidden -mt-2 md:-mt-4">
-              <span className="reveal-word inline-block font-satoshi italic text-red-600 text-[10vw] sm:text-[8vw] md:text-[6vw] lg:text-[4vw] font-bold">
+              <span className="reveal-word inline-block font-satoshi italic text-white text-[10vw] sm:text-[8vw] md:text-[6vw] lg:text-[4vw] font-bold">
                 connect
               </span>
             </div>
@@ -165,7 +165,7 @@ export default function ContactPage() {
                       className="flex items-center gap-4 py-3 md:py-4 border-b border-white/10"
                     >
                       <div className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center shrink-0">
-                        <Icon size={16} className="text-red-600" />
+                        <Icon size={16} className="text-white" />
                       </div>
                       <div>
                         <p className="font-satoshi text-xs text-white/30 tracking-widest uppercase mb-1">
@@ -194,8 +194,8 @@ export default function ContactPage() {
           <div ref={formRef}>
             {submitted ? (
               <div className="flex flex-col items-center justify-center h-full gap-6 py-16 md:py-20">
-                <div className="w-20 h-20 border border-red-600 rounded-full flex items-center justify-center">
-                  <ArrowUpRight size={32} className="text-red-600" />
+                <div className="w-20 h-20 border border-white rounded-full flex items-center justify-center">
+                  <ArrowUpRight size={32} className="text-white" />
                 </div>
                 <h3 className="font-bebas text-3xl md:text-4xl text-white tracking-widest text-center">
                   MESSAGE SENT!
@@ -220,7 +220,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="Your full name"
                     required
-                    className="bg-zinc-950 border border-white/10 text-white font-satoshi text-sm px-4 py-4 rounded-xl focus:outline-none focus:border-red-600 transition-colors duration-300 placeholder:text-white/20"
+                    className="bg-zinc-950 border border-white/10 text-white font-satoshi text-sm px-4 py-4 rounded-xl focus:outline-none focus:border-white transition-colors duration-300 placeholder:text-white/20"
                   />
                 </div>
 
@@ -236,7 +236,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="your@email.com"
                     required
-                    className="bg-zinc-950 border border-white/10 text-white font-satoshi text-sm px-4 py-4 rounded-xl focus:outline-none focus:border-red-600 transition-colors duration-300 placeholder:text-white/20"
+                    className="bg-zinc-950 border border-white/10 text-white font-satoshi text-sm px-4 py-4 rounded-xl focus:outline-none focus:border-white transition-colors duration-300 placeholder:text-white/20"
                   />
                 </div>
 
@@ -251,7 +251,7 @@ export default function ContactPage() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+00 000 000 0000"
-                    className="bg-zinc-950 border border-white/10 text-white font-satoshi text-sm px-4 py-4 rounded-xl focus:outline-none focus:border-red-600 transition-colors duration-300 placeholder:text-white/20"
+                    className="bg-zinc-950 border border-white/10 text-white font-satoshi text-sm px-4 py-4 rounded-xl focus:outline-none focus:border-white transition-colors duration-300 placeholder:text-white/20"
                   />
                 </div>
 
@@ -264,7 +264,7 @@ export default function ContactPage() {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="bg-zinc-950 border border-white/10 text-white/60 font-satoshi text-sm px-4 py-4 rounded-xl focus:outline-none focus:border-red-600 transition-colors duration-300 appearance-none"
+                    className="bg-zinc-950 border border-white/10 text-white/60 font-satoshi text-sm px-4 py-4 rounded-xl focus:outline-none focus:border-white transition-colors duration-300 appearance-none"
                   >
                     <option value="">Select a Service</option>
                     {services.map((s, i) => (
@@ -284,14 +284,14 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="Describe your needs..."
                     rows={5}
-                    className="bg-zinc-950 border border-white/10 text-white font-satoshi text-sm px-4 py-4 rounded-xl focus:outline-none focus:border-red-600 transition-colors duration-300 placeholder:text-white/20 resize-none"
+                    className="bg-zinc-950 border border-white/10 text-white font-satoshi text-sm px-4 py-4 rounded-xl focus:outline-none focus:border-white transition-colors duration-300 placeholder:text-white/20 resize-none"
                   />
                 </div>
 
                 {/* Submit */}
                 <button
                   type="submit"
-                  className="submit-btn form-field group flex items-center justify-center gap-3 font-satoshi text-sm tracking-widest uppercase bg-red-600 text-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all duration-300 w-full mt-2"
+                  className="submit-btn form-field group flex items-center justify-center gap-3 font-satoshi text-sm tracking-widest uppercase bg-white text-black px-8 py-4 rounded-full hover:bg-zinc-300 transition-all duration-300 w-full mt-2"
                 >
                   Send Message
                   <Send

@@ -104,8 +104,8 @@ export default function AboutPreview() {
 
         {/* Section Tag */}
         <div className="flex items-center gap-3 mb-10 md:mb-12">
-          <div className="w-8 h-px bg-red-600" />
-          <span className="font-satoshi text-sm text-red-600 tracking-[0.3em] uppercase font-semibold">
+          <div className="w-8 h-px bg-white" />
+          <span className="font-satoshi text-sm text-white tracking-[0.3em] uppercase font-semibold">
             About Me
           </span>
         </div>
@@ -122,7 +122,7 @@ export default function AboutPreview() {
             ))}
           </div>
           <div className="overflow-hidden mt-2">
-            <span className="reveal-word inline-block font-satoshi italic text-red-600 text-[5vw] md:text-[3.5vw] lg:text-[2.5vw] font-bold">
+            <span className="reveal-word inline-block font-satoshi italic text-white text-[5vw] md:text-[3.5vw] lg:text-[2.5vw] font-bold">
               — about me
             </span>
           </div>
@@ -171,7 +171,7 @@ export default function AboutPreview() {
               ].map((skill, i) => (
                 <span
                   key={i}
-                  className="font-satoshi text-xs tracking-wider uppercase border border-white/20 text-white/60 px-3 md:px-4 py-1.5 md:py-2 rounded-full hover:border-red-600 hover:text-red-600 transition-all duration-300"
+                  className="font-satoshi text-xs tracking-wider uppercase border border-white/20 text-white/60 px-3 md:px-4 py-1.5 md:py-2 rounded-full hover:border-white hover:text-white transition-all duration-300"
                 >
                   {skill}
                 </span>
@@ -189,7 +189,7 @@ export default function AboutPreview() {
                 { target: 50, suffix: "+", label: "Clients Served" },
               ].map((stat, i) => (
                 <div key={i}>
-                  <p className="font-bebas text-3xl md:text-4xl text-red-600">
+                  <p className="font-bebas text-3xl md:text-4xl text-white">
                     <span className="stat-number" data-target={stat.target}>
                       0
                     </span>
@@ -205,7 +205,7 @@ export default function AboutPreview() {
             {/* CTA */}
             <Link
               href="/about"
-              className="group inline-flex items-center gap-2 font-satoshi text-sm tracking-widest uppercase text-white border-b border-white/30 pb-1 hover:border-red-600 hover:text-red-600 transition-all duration-300 w-fit mt-3 md:mt-4"
+              className="group inline-flex items-center gap-2 font-satoshi text-sm tracking-widest uppercase text-white border-b border-white/30 pb-1 hover:border-white transition-all duration-300 w-fit mt-3 md:mt-4"
             >
               Full Story
               <ArrowUpRight

@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import gsap from "gsap";
 
 const navLinks = [
-  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Certificates", href: "/certificates" },
@@ -67,20 +66,20 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Floating capsule navbar */}
+      {/* Floating navbar: main pill (logo + links) + separate CTA pill */}
       <div ref={navRef} className="fixed top-5 inset-x-0 z-50 px-4 md:px-8">
-        <nav className="max-w-5xl mx-auto">
+        <nav className="max-w-5xl mx-auto flex items-center justify-between gap-3">
+          {/* Main pill */}
           <div
-            className={`flex items-center justify-between rounded-full px-4 sm:px-5 py-3 border transition-all duration-500 ${
+            className={`flex items-center justify-between md:justify-start gap-6 sm:gap-8 rounded-full px-4 sm:px-5 py-3 border flex-1 md:flex-initial transition-all duration-500 ${
               scrolled
-                ? "bg-black/50 border-white/15 backdrop-blur-[40px]"
-                : "bg-white/[0.06] border-white/10 backdrop-blur-[32px]"
+                ? "bg-black/60 border-white/15 backdrop-blur-[40px]"
+                : "bg-black/40 border-white/10 backdrop-blur-[32px]"
             }`}
-            style={{ WebkitBackdropFilter: scrolled ? "blur(40px)" : "blur(32px)" }}
           >
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 shrink-0">
-              <span className="w-2.5 h-2.5 bg-red-600 rotate-45 inline-block flex-shrink-0" />
+              <span className="w-2.5 h-2.5 bg-white rotate-45 inline-block flex-shrink-0" />
               <span className="font-bebas text-white text-base sm:text-lg tracking-widest uppercase">
                 Mbi Ojong
               </span>
@@ -92,8 +91,8 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`font-satoshi text-xs tracking-[0.2em] uppercase transition-colors duration-300 hover:text-red-500 ${
-                    pathname === link.href ? "text-red-500" : "text-white/70"
+                  className={`font-satoshi text-xs tracking-[0.2em] uppercase transition-colors duration-300 hover:text-white ${
+                    pathname === link.href ? "text-white" : "text-white/55"
                   }`}
                 >
                   {link.label}
@@ -101,43 +100,42 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Contact button + hamburger */}
-            <div className="flex items-center gap-3 sm:gap-4">
-              <Link
-                href="/contact"
-                className={`hidden md:inline-flex font-satoshi text-xs tracking-[0.2em] uppercase px-5 py-2 rounded-full border transition-all duration-300 hover:bg-white hover:text-black hover:border-white ${
-                  pathname === "/contact"
-                    ? "bg-red-600 border-red-600 text-white"
-                    : "border-white/30 text-white"
+            {/* Hamburger (mobile only) */}
+            <button
+              className="md:hidden flex flex-col gap-[5px] z-50 p-1"
+              onClick={() => setMenuOpen((prev) => !prev)}
+              aria-label="Toggle menu"
+              aria-expanded={menuOpen}
+            >
+              <span
+                className={`block w-5 h-0.5 bg-white transition-all duration-300 origin-center ${
+                  menuOpen ? "rotate-45 translate-y-[7px]" : ""
                 }`}
-              >
-                Contact
-              </Link>
-
-              <button
-                className="md:hidden flex flex-col gap-[5px] z-50 p-1"
-                onClick={() => setMenuOpen((prev) => !prev)}
-                aria-label="Toggle menu"
-                aria-expanded={menuOpen}
-              >
-                <span
-                  className={`block w-5 h-0.5 bg-white transition-all duration-300 origin-center ${
-                    menuOpen ? "rotate-45 translate-y-[7px]" : ""
-                  }`}
-                />
-                <span
-                  className={`block w-5 h-0.5 bg-white transition-all duration-300 ${
-                    menuOpen ? "opacity-0 scale-x-0" : ""
-                  }`}
-                />
-                <span
-                  className={`block w-5 h-0.5 bg-white transition-all duration-300 origin-center ${
-                    menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
-                  }`}
-                />
-              </button>
-            </div>
+              />
+              <span
+                className={`block w-5 h-0.5 bg-white transition-all duration-300 ${
+                  menuOpen ? "opacity-0 scale-x-0" : ""
+                }`}
+              />
+              <span
+                className={`block w-5 h-0.5 bg-white transition-all duration-300 origin-center ${
+                  menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
+                }`}
+              />
+            </button>
           </div>
+
+          {/* Separate outlined CTA pill */}
+          <Link
+            href="/contact"
+            className={`hidden md:inline-flex items-center gap-1.5 shrink-0 font-satoshi text-xs tracking-[0.2em] uppercase px-5 py-3 rounded-full border backdrop-blur-[32px] transition-all duration-300 hover:bg-white hover:text-black hover:border-white ${
+              pathname === "/contact"
+                ? "bg-white border-white text-black"
+                : "bg-black/30 border-white/25 text-white"
+            }`}
+          >
+            Book a Call ↗
+          </Link>
         </nav>
       </div>
 
@@ -153,8 +151,8 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className={`font-bebas text-4xl sm:text-5xl tracking-widest uppercase transition-colors duration-300 hover:text-red-600 ${
-                pathname === link.href ? "text-red-600" : "text-white"
+              className={`font-bebas text-4xl sm:text-5xl tracking-widest uppercase transition-colors duration-300 hover:text-white ${
+                pathname === link.href ? "text-white" : "text-white/50"
               }`}
             >
               {link.label}

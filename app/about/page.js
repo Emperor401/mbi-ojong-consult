@@ -146,8 +146,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div ref={heroRef} className="mb-12 md:mb-16">
             <div className="flex items-center gap-3 mb-5 md:mb-6">
-              <div className="w-8 h-px bg-red-600" />
-              <span className="font-satoshi text-sm text-red-600 tracking-[0.3em] uppercase font-semibold">
+              <div className="w-8 h-px bg-white" />
+              <span className="font-satoshi text-sm text-white tracking-[0.3em] uppercase font-semibold">
                 Who I Am
               </span>
             </div>
@@ -157,7 +157,7 @@ export default function AboutPage() {
               </span>
             </div>
             <div className="overflow-hidden -mt-2 md:-mt-4">
-              <span className="reveal-word inline-block font-satoshi italic text-red-600 text-[10vw] sm:text-[8vw] md:text-[6vw] lg:text-[4vw] font-bold">
+              <span className="reveal-word inline-block font-satoshi italic text-white text-[10vw] sm:text-[8vw] md:text-[6vw] lg:text-[4vw] font-bold">
                 Mbi Ojong
               </span>
             </div>
@@ -204,7 +204,7 @@ export default function AboutPage() {
             <div className="flex flex-col gap-3 mt-2 md:mt-4">
               {expertise.map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <CheckCircle size={16} className="text-red-600 mt-0.5 shrink-0" />
+                  <CheckCircle size={16} className="text-white mt-0.5 shrink-0" />
                   <span className="font-satoshi text-white/70 text-sm font-medium">
                     {item}
                   </span>
@@ -219,15 +219,15 @@ export default function AboutPage() {
       <section ref={missionRef} className="py-16 md:py-24 px-6 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-3 mb-10 md:mb-16">
-            <div className="w-8 h-px bg-red-600" />
-            <span className="font-satoshi text-sm text-red-600 tracking-[0.3em] uppercase font-semibold">
+            <div className="w-8 h-px bg-white" />
+            <span className="font-satoshi text-sm text-white tracking-[0.3em] uppercase font-semibold">
               Purpose
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {/* Mission */}
-            <div className="mission-card bg-black border border-white/10 rounded-2xl p-6 md:p-8 hover:border-red-600 transition-all duration-500">
+            <div className="mission-card bg-black border border-white/10 rounded-2xl p-6 md:p-8 hover:border-white transition-all duration-500">
               <div className="mb-5 md:mb-6">
                 <div className="overflow-hidden">
                   <span className="inline-block font-bebas text-4xl md:text-5xl text-white leading-none tracking-tight">
@@ -235,7 +235,7 @@ export default function AboutPage() {
                   </span>
                 </div>
                 <div className="overflow-hidden -mt-1">
-                  <span className="inline-block font-satoshi italic text-red-600 text-xl md:text-2xl font-bold">
+                  <span className="inline-block font-satoshi italic text-white text-xl md:text-2xl font-bold">
                     goal
                   </span>
                 </div>
@@ -250,7 +250,7 @@ export default function AboutPage() {
             </div>
 
             {/* Vision */}
-            <div className="mission-card bg-black border border-white/10 rounded-2xl p-6 md:p-8 hover:border-red-600 transition-all duration-500">
+            <div className="mission-card bg-black border border-white/10 rounded-2xl p-6 md:p-8 hover:border-white transition-all duration-500">
               <div className="mb-5 md:mb-6">
                 <div className="overflow-hidden">
                   <span className="inline-block font-bebas text-4xl md:text-5xl text-white leading-none tracking-tight">
@@ -258,7 +258,7 @@ export default function AboutPage() {
                   </span>
                 </div>
                 <div className="overflow-hidden -mt-1">
-                  <span className="inline-block font-satoshi italic text-red-600 text-xl md:text-2xl font-bold">
+                  <span className="inline-block font-satoshi italic text-white text-xl md:text-2xl font-bold">
                     direction
                   </span>
                 </div>
@@ -279,8 +279,8 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 px-6 bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-3 mb-5 md:mb-6">
-            <div className="w-8 h-px bg-red-600" />
-            <span className="font-satoshi text-sm text-red-600 tracking-[0.3em] uppercase font-semibold">
+            <div className="w-8 h-px bg-white" />
+            <span className="font-satoshi text-sm text-white tracking-[0.3em] uppercase font-semibold">
               FAQ
             </span>
           </div>
@@ -290,7 +290,7 @@ export default function AboutPage() {
               FREQUENTLY ASKED
             </span>
             <br />
-            <span className="inline-block font-satoshi italic text-red-600 text-[6vw] sm:text-[5vw] md:text-[3.5vw] lg:text-[2.5vw] font-bold -mt-2">
+            <span className="inline-block font-satoshi italic text-white text-[6vw] sm:text-[5vw] md:text-[3.5vw] lg:text-[2.5vw] font-bold -mt-2">
               questions
             </span>
           </div>
@@ -299,7 +299,7 @@ export default function AboutPage() {
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className="faq-item border-b border-white/10 hover:border-red-600/30 transition-all duration-300"
+                className="faq-item border-b border-white/10 hover:border-white/30 transition-all duration-300"
               >
                 <button
                   onClick={() => toggleFaq(i)}
@@ -308,7 +308,7 @@ export default function AboutPage() {
                   <span className="font-satoshi text-white font-semibold text-sm md:text-base leading-snug">
                     {faq.question}
                   </span>
-                  <span className="faq-arrow text-red-600 text-2xl font-light shrink-0">
+                  <span className="faq-arrow text-white text-2xl font-light shrink-0">
                     +
                   </span>
                 </button>
